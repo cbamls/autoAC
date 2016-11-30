@@ -13,10 +13,13 @@
 
 哈理工autoAC：
 使用教程：
-在cmd中执行 
+在cmd中执行
+	
 	java -jar autoAC.jar [start] [end]
+	
 start 和 end 两个参数分别表示 题号的起始
 如：
+
 	java -jar autoAC.jar 1000 10003
 	
 务必autoAC.jar  和  autoAC.properties放在同一个文件夹下
