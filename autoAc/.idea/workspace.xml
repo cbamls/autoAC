@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="290d3d7c-9366-4b1f-8bfd-e958f3b51657" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../auto.jar" afterPath="" />
-    </list>
+    <list default="true" id="290d3d7c-9366-4b1f-8bfd-e958f3b51657" name="Default" comment="" />
     <ignored path="autoAc.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -925,12 +923,12 @@
       <updated>1480300845920</updated>
       <workItem from="1480300849193" duration="4709000" />
       <workItem from="1480497416827" duration="8000" />
-      <workItem from="1480497750169" duration="116000" />
+      <workItem from="1480497750169" duration="710000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4833000" />
+    <option name="totallyTimeSpent" value="5427000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="715" y="9" width="1370" height="744" extended-state="0" />
