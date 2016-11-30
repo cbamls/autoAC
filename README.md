@@ -1,10 +1,11 @@
-Author: cbam
-QQ: 756029571
-mail: 88cbam@gmail.com
-github: https://github.com/cbamls
-blog: http://blog.csdn.net/lsgqjh/article/list/2
-school: 哈尔滨理工大学
-major: 软件工程
+	Author: cbam
+	QQ: 756029571
+	mail: 88cbam@gmail.com
+	github: https://github.com/cbamls
+	blog: http://blog.csdn.net/lsgqjh/article/list/2
+	school: 哈尔滨理工大学
+	major: 软件工程
+
 
 自动化AC java 脚本 autoAC工程
 里面的jar文件可以直接运行
