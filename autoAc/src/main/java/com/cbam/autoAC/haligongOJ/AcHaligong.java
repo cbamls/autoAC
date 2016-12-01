@@ -174,8 +174,8 @@ public class AcHaligong {
     public Boolean readAccount() {
         System.out.println("\n读取配置!\n");
         try {
-            InputStreamReader isr=new InputStreamReader(new FileInputStream("E:\\webplace\\idoc\\idoc-common\\src\\main\\resources\\autoAC.properties"), "UTF-8");
-            // InputStreamReader isr=new InputStreamReader(new FileInputStream("autoAC.properties"), "UTF-8");
+                // InputStreamReader isr=new InputStreamReader(new FileInputStream("E:\\webplace\\autoAc\\autoAc\\src\\main\\resources\\autoAC.properties"), "UTF-8");
+             InputStreamReader isr=new InputStreamReader(new FileInputStream("autoAC.properties"), "UTF-8");
             Properties props = new Properties();
             props.load(isr);
             this.userName = props.getProperty("autoAC.userName").trim();

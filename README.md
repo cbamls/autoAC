@@ -30,6 +30,6 @@ start 和 end 两个参数分别表示 题号的起始
 杭电AC教程：
 执行 
 
-	java -jar autoAC.jar [杭电用户名] [杭电密码] [开始题号] [结束题号]
+	java -jar autoAC.jar [开始题号] [结束题号] [杭电用户名] [杭电密码] 
 
 #请尽量在凌晨执行！！不要影响其他ACMer的判题！！！欢迎后来者pull request 或着 Issue 、star 加 fork！！
