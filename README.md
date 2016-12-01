@@ -25,7 +25,8 @@ start 和 end 两个参数分别表示 题号的起始
 
 务必autoAC.jar  和  autoAC.properties放在同一个文件夹下
 务必cmd打开后切换到 以上两个文件所在的目录
-AC吧
+
+
 杭电AC教程：
 执行 
 
