@@ -257,6 +257,9 @@ public class ACHDOJ {
             if(m.group(1).indexOf(String.valueOf(problem_id)) == -1) {
                 return "";
             }
+            if (m.group(1).toLowerCase().indexOf("hdu") == -1) {
+                return "";
+            }
         }
         int loc_start1 = html.indexOf("class=\"cpp\">") + "class=\"cpp\">".length();
         int loc_start2 = html.indexOf("#include");
@@ -348,7 +351,7 @@ public class ACHDOJ {
     }
     public Boolean init(HashMap map) {
         DbUtil dbUtil = new DbUtil();
-        String sql = "select problem_id from autoac_copy_copy";
+        String sql = "select problem_id from autoac_copy_copy where acmer='" + this.userName + "'";
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String nowDate = sdf.format(new Date());
         String sqlLimit = "select count(88) from autoac_copy_copy where acmer='" + this.userName + "' and date_format(create_time, '%Y-%m-%d') = '" + nowDate + "'";
@@ -399,7 +402,7 @@ public class ACHDOJ {
 
        // List list = achdoj.getBlogUrlBaidu("https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=%20hdu%201002%20csdn&oq=hdu%201002%20csdb&rsv_pq=c0e8521c00050b46&rsv_t=4ce9Z5VYa1xACxYuotgWhc%2BRFlwuN0sixZapzB%2BCg3I5tMT5Pl0ABpdboFM&rqlang=cn&rsv_enter=0&inputT=1767&rsv_sug3=43&rsv_sug4=2312");
        HashMap map = new HashMap();
-        if(achdoj.init(map)) {
+        if(!achdoj.init(map)) {
             return ;
         }
         if(!achdoj.toLogin()) {
