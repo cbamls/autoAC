@@ -366,6 +366,10 @@ public class AcHaligong {
         for(int problem_id = start; problem_id <= end; problem_id++) {
             total_problem++;
             int iterator = 0;
+            if(problem_id - start > 30) {
+                System.out.println("今日使用次数已达上限!(30)");
+                return ;
+            }
             TreeMap<Integer, List > treeMap = autoAc.getShareMap(problem_id, unsolved);
             for(Map.Entry entry : treeMap.entrySet()) {
                 List list = treeMap.get(entry.getKey());

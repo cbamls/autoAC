@@ -15,9 +15,9 @@ import java.sql.*;
 
 
 public class DbUtil {
-    public static final String url = "jdbc:mysql://localhost:3306/autoAc?useUnicode=true&characterEncoding=utf8";
-    public static final String name = "root";
-    public static final String password = "root";
+    public static final String url = "jdbc:mysql://139.129.24.100:3306/autoAC?useUnicode=true&characterEncoding=utf8";
+    public static final String name = "acm";
+    public static final String password = "123456";
     private static Connection conn = null;
     private static DbUtil dbUtil = null;
     private static PreparedStatement ps = null;

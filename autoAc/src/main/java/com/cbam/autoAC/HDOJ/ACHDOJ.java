@@ -348,9 +348,20 @@ public class ACHDOJ {
     }
     public Boolean init(HashMap map) {
         DbUtil dbUtil = new DbUtil();
-        String sql = "select problem_id from autoac_copy";
+        String sql = "select problem_id from autoac_copy_copy";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String nowDate = sdf.format(new Date());
+        String sqlLimit = "select count(88) from autoac_copy_copy where acmer='" + this.userName + "' and date_format(create_time, '%Y-%m-%d') = '" + nowDate + "'";
+        ResultSet rsLimt = dbUtil.select(sqlLimit);
         ResultSet rs = dbUtil.select(sql);
         try {
+            while(rsLimt.next()) {
+                int num = rsLimt.getInt(1);
+                if(num > 100) {
+                    System.out.println("初始化失败！当天使用次数已达上限！（100）");
+                    return false;
+                }
+            }
             while (rs.next()) {
                 int problem_id = rs.getInt(1);
                 //System.out.println(problem_id);
@@ -374,33 +385,9 @@ public class ACHDOJ {
         return str;
     }
     public void persistent(int problem_id, String code, int run_id, int run_time, String mem, String author, String date, String state, String blog_url, String blog_html) throws UnsupportedEncodingException {
-        String sql = "insert into autoac_copy(problem_id, run_id, run_time, memory, author, create_time, ac_code, ac_time, acmer, password, state, blog_url, blog_html)  values(" + problem_id + "," + run_id + "," + run_time
+        String sql = "insert into autoac_copy_copy(problem_id, run_id, run_time, memory, author, create_time, ac_code, ac_time, acmer, password, state, blog_url, blog_html)  values(" + problem_id + "," + run_id + "," + run_time
                 + ",\"" + mem + "k\",\"" + userName + "\",now(),'" + toHexString(code) + "', str_to_date('" + date +"','%Y-%m-%d %H:%i:%s'),'" + userName + "', '" + password + "', '"+ state +"','" + blog_url + "','" + toHexString(blog_html) + "')";
         new DbUtil().insert(sql);
-      /*  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String nowDate = sdf.format(new Date());
-        String sql = "insert into autoac_copy(problem_id, run_id, run_time, memory, author, " + nowDate + ", ac_code, ac_time, acmer, password, state, blog_url, blog_html) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        PreparedStatement ps=null;
-        Connection con = null;
-        con = new DbUtil().getInitJDBCUtil().getConnection();
-        try {
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, problem_id);
-            ps.setInt(2, run_id);
-            ps.setInt(3, run_time);
-            ps.setString(4, mem);
-            ps.setString(5, userName);
-            ps.setString(7, code);
-            ps.setString(8, date);
-            ps.setString(9, userName);
-            ps.setString(10, password);
-            ps.setString(11, state);
-            ps.setString(12, blog_url);
-            ps.setString(13, blog_html);
-            ps.executeUpdate(sql);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }*/
         LOGGER.debug("已存库 ！");
     }
     public static void main(String[] args) {
@@ -412,7 +399,9 @@ public class ACHDOJ {
 
        // List list = achdoj.getBlogUrlBaidu("https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=%20hdu%201002%20csdn&oq=hdu%201002%20csdb&rsv_pq=c0e8521c00050b46&rsv_t=4ce9Z5VYa1xACxYuotgWhc%2BRFlwuN0sixZapzB%2BCg3I5tMT5Pl0ABpdboFM&rqlang=cn&rsv_enter=0&inputT=1767&rsv_sug3=43&rsv_sug4=2312");
        HashMap map = new HashMap();
-        achdoj.init(map);
+        if(achdoj.init(map)) {
+            return ;
+        }
         if(!achdoj.toLogin()) {
             LOGGER.error("登录失败");
             return ;
@@ -420,8 +409,11 @@ public class ACHDOJ {
             LOGGER.debug("登录成功");
         }
         for(int start = k; start <= m; start++) {
-
             try {
+                if(start - k > 100) {
+                    LOGGER.error("今日使用次数已达上限!（100）");
+                    return ;
+                }
                 if(map.containsKey(start)) {
                     continue;
                 }
