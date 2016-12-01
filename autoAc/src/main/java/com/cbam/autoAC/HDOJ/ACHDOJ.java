@@ -246,6 +246,9 @@ public class ACHDOJ {
     public String getCode(String html, int problem_id) {
         String str = "";
         String java = StringEscapeUtils.escapeJava(html);
+        if(html == null) {
+            return "";
+        }
         String newHtml = java.replaceAll("\n", "");
         Pattern p = Pattern.compile("<title>(.*)</title>");
         Matcher m = p.matcher(newHtml);
