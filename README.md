@@ -1,5 +1,5 @@
 #自动化AC java 脚本 autoAC工程
-#杭电AC率 70%  哈理工AC率100%
+#杭电AC率 90以上%  哈理工AC率接近100%
 	Author: cbam
 	QQ: 756029571
 	mail: 88cbam@gmail.com
@@ -10,7 +10,8 @@
 	
 杭电帐号: cbamAC
 哈理工OJ帐号: cbam
-本篇博客： http://blog.csdn.net/lsgqjh/article/details/53411451
+运行截图请查阅本篇博客： http://blog.csdn.net/lsgqjh/article/details/53411451
+杭电rank估计没有那么高AC率（一次爬取）
 
 目前支持哈理工oj 和杭电oj 其它各大Oj 仅仅需要简单改改就能AC了
 哈理工autoAC：
